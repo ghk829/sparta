@@ -5,7 +5,7 @@ client = MongoClient(url)
 db = client['heroku_v6l9bbkb']
 collection = db['test']
 
-# collection.insert_one({'a':'b'}) C
+collection.insert_one({'a':'b'}) C
 
 rows = collection.find({})
 collection.update_one
