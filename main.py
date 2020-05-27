@@ -5,10 +5,20 @@ client = MongoClient(url)
 db = client['heroku_v6l9bbkb']
 collection = db['test']
 
-collection.insert_one({'a':'b'}) C
+rows = collection.find()
 
-rows = collection.find({})
-collection.update_one
-collection.delete_one
+result = [] # 리스트를 통해서 잠시 저장한다.
+
 for row in rows:
-  print(row)
+   if 'age' in row:
+       if row['age'] > 21:
+          result.append(row['age'])
+
+max_age = max(result)
+
+rows = collection.find()
+
+for row in rows:
+   if 'age' in row:
+       if row['age'] == max_age:
+          print(row)
