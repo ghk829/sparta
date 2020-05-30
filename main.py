@@ -6,19 +6,24 @@ db = client['heroku_v6l9bbkb']
 collection = db['test']
 
 rows = collection.find()
+collection.delete_many({})
 
-result = [] # 리스트를 통해서 잠시 저장한다.
-
+rows = collection.find({})
 for row in rows:
-   if 'age' in row:
-       if row['age'] > 21:
-          result.append(row['age'])
+  print(row)
 
-max_age = max(result)
+# result = [] # 리스트를 통해서 잠시 저장한다.
 
-rows = collection.find()
+# for row in rows:
+#    if 'age' in row:
+#        if row['age'] > 21:
+#           result.append(row['age'])
 
-for row in rows:
-   if 'age' in row:
-       if row['age'] == max_age:
-          print(row)
+# max_age = max(result)
+
+# rows = collection.find()
+
+# for row in rows:
+#    if 'age' in row:
+#        if row['age'] == max_age:
+#           print(row)
